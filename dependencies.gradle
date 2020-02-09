@@ -1,0 +1,128 @@
+ext {
+
+    def versions = [
+            espresso      : '3.0.1',
+            appCompat     : '27.0.2',
+            constraint    : '1.1.0',
+            playServices  : '11.8.0',
+            recycler      : 'v1.1.1',
+
+            rxJava        : '2.1.14',
+            rxAndroid     : "2.0.2",
+
+            dagger        : '2.16',
+
+            archComponents: '1.1.0',
+            room          : '1.0.0',
+
+            picasso       : '2.71828',
+
+            retrofit      : '2.4.0',
+            logging       : '3.8.0',
+
+            mockito       : '2.12.0',
+            robolectric   : '3.6.1',
+            jUnit         : '4.12'
+    ]
+
+    def libs = [
+            appCompat            : "com.android.support:appcompat-v7:${versions.appCompat}",
+            annotations          : "com.android.support:support-annotations:${versions.appCompat}",
+            constraintLayout     : "com.android.support.constraint:constraint-layout:${versions.constraint}",
+            design               : "com.android.support:design:${versions.appCompat}",
+
+            archExtensions       : "android.arch.lifecycle:extensions:${versions.archComponents}",
+            archCompiler         : "android.arch.lifecycle:compiler:${versions.archComponents}",
+
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+            rxJava               : "io.reactivex.rxjava2:rxjava:${versions.rxJava}",
+
+            dagger               : "com.google.dagger:dagger:${versions.dagger}",
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${versions.dagger}",
+            daggerAndroid        : "com.google.dagger:dagger-android-support:${versions.dagger}",
+            daggerAndroidCompiler: "com.google.dagger:dagger-android-processor:${versions.dagger}",
+
+            room                 : "android.arch.persistence.room:runtime:${versions.room}",
+            roomCompiler         : "android.arch.persistence.room:compiler:${versions.room}",
+            roomRxJava           : "android.arch.persistence.room:rxjava2:${versions.room}",
+
+            picasso              : "com.squareup.picasso:picasso:${versions.picasso}",
+
+            retrofit             : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            retrofitAdapterRXJava: "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+            retrofitMock         : "com.squareup.retrofit2:retrofit-mock:${versions.retrofit}",
+            retrofitLoggins      : "com.squareup.okhttp3:logging-interceptor:${versions.logging}",
+
+            kotlinStdLib         : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    ]
+
+    def testLibs = [
+            junit      : "junit:junit:${versions.jUnit}",
+            espresso   : "com.android.support.test.espresso:espresso-core:${versions.espresso}",
+            mockito    : "org.mockito:mockito-inline:${versions.mockito}",
+            robolectric: "org.robolectric:robolectric:${versions.robolectric}"
+    ]
+
+    def modules = [
+            utils   : ":utils",
+            tools   : ":tools",
+            entities: ":entities"
+    ]
+
+    def impl = "implementation"
+    def debImpl = "debugImplementation"
+    def relImpl = "releaseImplementation"
+    def apt = "kapt"
+    def testImpl = "testImplementation"
+
+    appDeps = [
+            [configuration: impl, dependency: project(modules.utils)],
+            [configuration: impl, dependency: project(modules.tools)],
+            [configuration: impl, dependency: project(modules.entities)],
+
+            [configuration: impl, dependency: libs.appCompat],
+            [configuration: impl, dependency: libs.constraintLayout],
+            [configuration: impl, dependency: libs.design],
+
+            [configuration: impl, dependency: libs.archExtensions],
+            [configuration: apt, dependency: libs.archCompiler],
+
+            [configuration: impl, dependency: libs.picasso],
+
+            [configuration: impl, dependency: libs.room],
+            [configuration: apt, dependency: libs.roomCompiler],
+
+            [configuration: impl, dependency: libs.kotlinStdLib],
+
+            [configuration: impl, dependency: libs.rxAndroid],
+            [configuration: impl, dependency: libs.rxJava],
+
+            [configuration: impl, dependency: libs.dagger],
+            [configuration: apt, dependency: libs.daggerCompiler],
+            [configuration: impl, dependency: libs.daggerAndroid],
+            [configuration: apt, dependency: libs.daggerAndroidCompiler],
+
+            [configuration: impl, dependency: libs.retrofit],
+            [configuration: impl, dependency: libs.retrofitConverterGson],
+            [configuration: impl, dependency: libs.retrofitAdapterRXJava],
+            [configuration: impl, dependency: libs.retrofitLoggins],
+            [configuration: impl, dependency: libs.retrofitMock],
+
+            [configuration: testImpl, dependency: testLibs.junit],
+            [configuration: testImpl, dependency: testLibs.mockito],
+            [configuration: testImpl, dependency: testLibs.robolectric]
+    ]
+
+    utilsDeps = [
+            [configuration: impl, dependency: libs.kotlinStdLib]
+    ]
+
+    toolsDeps = [
+            [configuration: impl, dependency: libs.kotlinStdLib]
+    ]
+
+    entitiesDeps = [
+            [configuration: impl, dependency: libs.kotlinStdLib]
+    ]
+}

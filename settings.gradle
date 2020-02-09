@@ -1,0 +1,2 @@
+include ':app', ':entities', ':utils', ':tools'
+rootProject.name='DaggerKotlin'
