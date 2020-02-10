@@ -16,7 +16,6 @@ import dagger.android.support.AndroidSupportInjectionModule
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.test.daggerkotlin.activities.DetailsActivity
@@ -33,8 +32,8 @@ import ru.test.daggerkotlin.dagger.scopes.DetailsActivityScope
 import ru.test.daggerkotlin.db.AppDatabase
 import ru.test.daggerkotlin.repository.DatabaseRepository
 import ru.test.daggerkotlin.repository.Repository
-import ru.test.daggerkotlin.rest.PhotoApi
-import ru.test.daggerkotlin.rest.TextApi
+import ru.test.daggerkotlin.mvp.presenter.rest.PhotoApi
+import ru.test.daggerkotlin.mvp.presenter.rest.TextApi
 import java.io.File
 import javax.inject.Singleton
 

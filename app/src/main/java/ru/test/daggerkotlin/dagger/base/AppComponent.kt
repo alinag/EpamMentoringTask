@@ -6,12 +6,7 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import ru.test.daggerkotlin.adapters.ContactsAdapter
 import ru.test.daggerkotlin.base.MainApp
-import ru.test.daggerkotlin.rest.PhotoApi
-import ru.test.daggerkotlin.rest.TextApi
 import javax.inject.Singleton
 
 
