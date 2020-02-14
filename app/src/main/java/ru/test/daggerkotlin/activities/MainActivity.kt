@@ -62,11 +62,13 @@ class MainActivity : BaseActivity<MainViewModel>(),
         )
     }
 
-    override fun setContactsData(contacts: List<Contact>): Unit = this.contacts.run {
-        clear()
-        addAll(contacts)
+    override fun setContactsData(contacts: List<Contact>) {
+        this.contacts.run {
+            clear()
+            addAll(contacts)
+        }
+        contactsAdapter.setItems(this.contacts)
     }
-
 
     override fun updateContactsList(contacts: List<Contact>) = contactsAdapter.run {
         setItems(contacts)
